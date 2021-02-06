@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import NarateLogo from "assets/images/narate.png";
 import { Link } from "react-router-dom";
 const Header = () => {
+  const [show, setShow] = useState(false)
+  const showMenu = (e) => {
+    // e.preventDefault();
+    // alert("juhg")
+    setShow(!show)
+
+  }
   return (
     <div>
       <nav
@@ -20,28 +27,51 @@ const Header = () => {
           aria-controls="navbarNavDropdown"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          style={{ border: "0px solid blue" }}
         >
-          <span className="navbar-toggler-icon"></span>
+          <span
+            onClick={(e) => showMenu(e)}
+            className="navbar-toggler-icon"
+          ></span>
         </button>
         <div
-          className=" w-100 collapse navbar-collapse text-right position-relative"
+          className={`w-100 collapse navbar-collapse text-right position-relative`}
           id="navbarNavDropdown"
         >
           {/* <ul className="navbar-nav w-100"> */}
           {/* <div className="float-right"> */}
           {/* <div className="d-flex w-100"> */}
-          <div className="float-right w-100 position-absolute">
-            <span className="w-auto mx-2 text-right">News</span>
+          <div className="d-none d-md-block float-right w-100 position-absolute">
+            <Link to="/news" className="">
+              <span className="w-auto mx-2 text-right">News</span>
+            </Link>
             <span className="w-auto mx-2 text-right">Dashboard</span>
             <Link to="signin">
               <span className="w-auto mx-2 text-right">Login</span>
             </Link>
           </div>
-          {/* </div> */}
+
+          {/* </div>
           {/* </div> */}
           {/* </ul> */}
         </div>
       </nav>
+      <div
+        style={{ zIndex: "90" }}
+        className={`${
+          show ? `d-block` : `d-none`
+        } d-md-none float-right w-100 position-absolute navbar-nav row p-0 m-0 py-4 bg-light`}
+      >
+        <Link to="/news" className="w-100 row h5" onClick={(e) => showMenu(e)}>
+          <span className="w-100 mx-2 text-right">News</span>
+        </Link>
+        <Link className="w-100 row h5" onClick={(e) => showMenu(e)}>
+          <span className="w-100 mx-2 text-right">Dashboard</span>
+        </Link>
+        <Link to="signin" className="w-100 row h5" onClick={(e) => showMenu(e)}>
+          <span className="w-100 mx-2 text-right">Login</span>
+        </Link>
+      </div>
     </div>
   );
 };

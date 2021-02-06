@@ -1,0 +1,11 @@
+.btn-search {
+  background-color: rgb(240, 187, 57);
+  color: rgb(202, 82, 36);
+  border-color: rgb(240, 187, 57);
+
+  &:hover {
+    background-color: #ffffff;
+    color: rgb(202, 82, 36);
+    border-color: rgb(240, 187, 57);
+  }
+}

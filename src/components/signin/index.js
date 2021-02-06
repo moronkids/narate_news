@@ -11,18 +11,18 @@ const Index = () => {
         <div className="container-login100">
           <div className="wrap-login100">
             <form className="login100-form validate-form">
-              <Link to="/" className="d-flex">
-                {" "}
-                <img
-                  src={Narate}
-                  alt=""
-                  className="mb-5 mx-auto"
-                  style={{ width: "100px" }}
-                />
-              </Link>
-              <span className="login100-form-title p-b-43">
-                Login
-              </span>
+              <div className="d-flex w-100">
+                <Link to="/" className="mx-auto">
+                  {" "}
+                  <img
+                    src={Narate}
+                    alt=""
+                    className="mb-5 mx-auto"
+                    style={{ width: "100px" }}
+                  />
+                </Link>
+              </div>
+              <span className="login100-form-title p-b-43">Login</span>
 
               <div
                 className="wrap-input100 validate-input"

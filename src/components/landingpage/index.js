@@ -6,7 +6,7 @@ const Index = () => {
         <div className="section1 d-md-flex d-block col-12 col-md-12">
           <div
             className="left-side col-12 col-md-6"
-            style={{ padding: "0 5%" }}
+
           >
             <div
               className="text-left float-left title w-100 mb-3"
