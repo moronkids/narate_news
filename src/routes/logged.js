@@ -34,7 +34,6 @@ export default function Logged({ auth: Auth, component: Component, ...rest }) {
           render={(props) => {
             return (
               <>
-
                 {/* <Wrapper> */}
                   <Component {...props} />
                 {/* </Wrapper> */}

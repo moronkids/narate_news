@@ -1,16 +1,35 @@
 import React, { useState } from "react";
-import Plane from "assets/images/plane.svg"
-import Narate from "assets/images/narate.png"
+import Plane from "assets/images/plane.svg";
+import Narate from "assets/images/narate.png";
 import { Link } from "react-router-dom";
+import { HIT_LOGIN } from "redux/actions";
+import { useSelector, useDispatch, connect } from "react-redux"; //hooks
 const Index = () => {
+    const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const buttonSubmit = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const data = {
+      email: email,
+      password: pass,
+    };
+
+    await dispatch({ type: HIT_LOGIN, payload: data });
+
+    // --------------------------------
+  };
   return (
     <>
       <div className="limiter">
         <div className="container-login100">
           <div className="wrap-login100">
-            <form className="login100-form validate-form">
+            <form
+              className="login100-form validate-form"
+              onSubmit={buttonSubmit}
+            >
               <div className="d-flex w-100">
                 <Link to="/" className="mx-auto">
                   {" "}

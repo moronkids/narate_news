@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import NarateLogo from "assets/images/narate.png";
 import { Link } from "react-router-dom";
+import { HIT_SIGNOUT } from "redux/actions";
+import { useSelector, useDispatch, connect } from "react-redux"; //hooks
 const Header = () => {
-  const [show, setShow] = useState(false)
+  const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
   const showMenu = (e) => {
     // e.preventDefault();
     // alert("juhg")
-    setShow(!show)
-
-  }
+    setShow(!show);
+  };
   return (
     <div>
       <nav
@@ -45,10 +47,18 @@ const Header = () => {
             <Link to="/news" className="">
               <span className="w-auto mx-2 text-right">News</span>
             </Link>
-            <span className="w-auto mx-2 text-right">Dashboard</span>
-            <Link to="signin">
-              <span className="w-auto mx-2 text-right">Login</span>
-            </Link>
+            {localStorage.getItem("token") && (
+              <span className="w-auto mx-2 text-right">Dashboard</span>
+            )}
+            {localStorage.getItem("token") ? (
+              <Link to="/" onClick={(e) => dispatch({ type: HIT_SIGNOUT })}>
+                <span className="w-auto mx-2 text-right">Logout</span>
+              </Link>
+            ) : (
+              <Link to="signin">
+                <span className="w-auto mx-2 text-right">Login</span>
+              </Link>
+            )}
           </div>
 
           {/* </div>
