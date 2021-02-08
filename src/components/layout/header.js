@@ -12,9 +12,9 @@ const Header = () => {
     setShow(!show);
   };
   return (
-    <div>
+    <>
       <nav
-        className="navbar navbar-expand-lg navbar-light mx-auto"
+        className="sticky-top navbar navbar-expand-lg navbar-light mx-auto"
         style={{ height: "90px" }}
       >
         <Link className="navbar-brand d-flex" to="/">
@@ -48,7 +48,7 @@ const Header = () => {
               <span className="w-auto mx-2 text-right">News</span>
             </Link>
             {localStorage.getItem("token") && (
-              <Link to="dashboard">
+              <Link to="/dashboard">
                 <span className="w-100 mx-2 text-right">Dashboard</span>
               </Link>
             )}
@@ -57,7 +57,7 @@ const Header = () => {
                 <span className="w-auto mx-2 text-right">Logout</span>
               </Link>
             ) : (
-              <Link to="signin">
+              <Link to="/signin">
                 <span className="w-auto mx-2 text-right">Login</span>
               </Link>
             )}
@@ -74,19 +74,19 @@ const Header = () => {
           show ? `d-block` : `d-none`
         } d-md-none float-right w-100 position-absolute navbar-nav row p-0 m-0 py-4 bg-light`}
       >
-        <Link to="news" className="w-100 row h5" onClick={(e) => showMenu(e)}>
+        <Link to="/news" className="w-100 row h5" onClick={(e) => showMenu(e)}>
           <span className="w-100 mx-2 text-right">News</span>
         </Link>
         <Link className="w-100 row h5" onClick={(e) => showMenu(e)}>
-          <Link to="dashboard">
+          <Link to="/dashboard">
             <span className="w-100 mx-2 text-right">Dashboard</span>
           </Link>
         </Link>
-        <Link to="signin" className="w-100 row h5" onClick={(e) => showMenu(e)}>
+        <Link to="/signin" className="w-100 row h5" onClick={(e) => showMenu(e)}>
           <span className="w-100 mx-2 text-right">Login</span>
         </Link>
       </div>
-    </div>
+    </>
   );
 };
 

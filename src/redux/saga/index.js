@@ -12,12 +12,19 @@ import {
   HIT_SIGNOUT,
   HIT_GETNEWS,
   GET_NEWS,
+  HIT_GETONENEWS,
+  GET_ONENEWS,
+  HIT_PUTNEWS,
+  HIT_DELETENEWS,
+  DELETE_NEWS,
+  HIT_POSTNEWS,
+  POST_NEWS,
 } from "redux/actions/index";
 // Import all actions
 
 // Import all api'
 import { signIn, signup } from "redux/api/auth";
-import { getNews } from "redux/api/news";
+import { deleteNews, getNews, getOneNews, postNews, putNews } from "redux/api/news";
 
 // Import all api'
 
@@ -42,6 +49,26 @@ function* signOutFunc() {
 function* getNewsFunc({payload}) {
   const news = yield call(getNews, payload)
   yield put({type: GET_NEWS, payload: news})
+
+}
+function* getOneNewsFunc({payload}) {
+  const news = yield call(getOneNews, payload)
+  yield put({type: GET_ONENEWS, payload: news})
+
+}
+function* putNewsFunc({payload}) {
+  const news = yield call(putNews, payload)
+  yield put({type: GET_ONENEWS, payload: news})
+
+}
+function* postNewsFunc({ payload }) {
+  const news = yield call(postNews, payload);
+  yield put({ type: POST_NEWS, payload: news });
+}
+function* deleteNewsFunc({payload}) {
+  const news = yield call(deleteNews, payload)
+  yield put({type: DELETE_NEWS, payload: news})
+
 }
 
 
@@ -52,4 +79,8 @@ export default function* protra() {
   yield takeEvery(HIT_SIGNOUT, signOutFunc);
   // news
   yield takeEvery(HIT_GETNEWS, getNewsFunc);
+  yield takeEvery(HIT_GETONENEWS, getOneNewsFunc);
+  yield takeEvery(HIT_PUTNEWS, putNewsFunc);
+  yield takeEvery(HIT_POSTNEWS, postNewsFunc);
+  yield takeEvery(HIT_DELETENEWS, deleteNewsFunc);
 }

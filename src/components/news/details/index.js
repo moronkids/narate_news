@@ -24,6 +24,7 @@ const Index = () => {
   }
   return (
     <div className="container mt-5 pb-3">
+      {/* <h3 className="text-left h2 font-weight-bold mb-3">Detail News</h3> */}
       <div className="title text-left h2 mb-1 font-weight-bold">
         {news.title}
       </div>
@@ -37,13 +38,11 @@ const Index = () => {
           className="mb-1 float-left"
           width="auto"
           height="300"
-          style={{ borderRadius: "8px", border: "10px solid transparent"}}
+          style={{ borderRadius: "8px", border: "10px solid transparent" }}
         />
       </div>
       <div className="content">
-        <p className="text-justify">
-            {news.desc}
-        </p>
+        <p className="text-justify">{news.desc}</p>
       </div>
     </div>
   );

@@ -28,6 +28,7 @@ const BootstrapLayout = ({ Table, Pagination, Filter, SettingsWrapper }) => {
   return (
     <div className="dataTables_wrapper form-inline dt-bootstrap">
       <div className="row">
+        <h4>Dashboard</h4>
         <div className="col-sm-6">
           <div className="dataTables_length">
             <SettingsWrapper />
@@ -115,9 +116,24 @@ const Index = () => {
       <span style={{ color: "#0000AA" }}>Edit</span>
     </Link>
   );
-
+  let number = 0;
+  const Number = () => {
+    number+=1
+    return <span>{number}</span>
+  }
   return (
     <div className="container mt-5">
+      <h3 className="text-left h2 font-weight-bold mb-3">Dashboard</h3>
+      <Link to="/dashboard/create">
+        <button
+          class="btn btn-primary float-left mr-2"
+          type="button"
+          style={{ borderRadius: "5px" }}
+          // onClick={(e) => createNews(e)}
+        >
+          Create
+        </button>
+      </Link>
       <Griddle
         data={output}
         plugins={[plugins.LocalPlugin]}
@@ -126,13 +142,11 @@ const Index = () => {
         <RowDefinition>
           <ColumnDefinition title="ID" id="id" customComponent={CustomColumn} />
           <ColumnDefinition title="Title" id="title" />
-
           <ColumnDefinition
             title="Is Active"
             id="is_active"
             customComponent={Active}
           />
-
           <ColumnDefinition
             id="id"
             title="Action"

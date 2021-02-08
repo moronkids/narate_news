@@ -6,16 +6,6 @@ import { Route } from "react-router-dom";
 // import styled from "styled-components";
 
 export default function Guest({ component: Component, ...rest }) {
-  // const { loading } = useSelector((state) => ({
-  //   loading: state.loading.loading,
-  // }));
-  // useEffect(() => {
-  //   if (loading) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "scroll";
-  //   }
-  // }, [loading]);
   return (
     <Route
       {...rest}

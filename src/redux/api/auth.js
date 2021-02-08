@@ -63,7 +63,8 @@ export const signIn = async (data, props) => {
 export const signup = async (data) => {
   loadX();
   let datax = {};
-  const todos = await axios.post("user/signup", data).catch(function (error) {
+  const todos = await axios.post("users/signup", data).catch(function (error) {
+    console.log("darr", error.response)
     if (error.response.status !== 200) {
       datax = {
         token: null,
@@ -95,7 +96,12 @@ export const signup = async (data) => {
     MySwal.fire({
       icon: "success",
       title: <h5>{todos.data.message}</h5>,
-    });
+    }).then(e => {
+      if(e.isConfirmed) {
+
+        window.location.href = "/"
+      }
+    })
     return datax;
   }
 };

@@ -3,14 +3,16 @@ import Plane from "assets/images/plane.svg";
 import Narate from "assets/images/narate.png";
 import { Link } from "react-router-dom";
 import { HIT_LOGIN } from "redux/actions";
+import { useForm } from "react-hook-form";
 import { useSelector, useDispatch, connect } from "react-redux"; //hooks
 const Index = () => {
+      const { register, handleSubmit, watch, errors } = useForm();
     const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const buttonSubmit = async (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+    // e.preventDefault();
+    // e.stopPropagation();
 
     const data = {
       email: email,
@@ -28,7 +30,7 @@ const Index = () => {
           <div className="wrap-login100">
             <form
               className="login100-form validate-form"
-              onSubmit={buttonSubmit}
+              onSubmit={handleSubmit((e) => buttonSubmit(e))}
             >
               <div className="d-flex w-100">
                 <Link to="/" className="mx-auto">
@@ -44,7 +46,7 @@ const Index = () => {
               <span className="login100-form-title p-b-43">Login</span>
 
               <div
-                className="wrap-input100 validate-input"
+                className="wrap-input100 validate-input mb-3"
                 data-validate="Valid email is required: ex@abc.xyz"
               >
                 <input
@@ -52,13 +54,15 @@ const Index = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   type="text"
                   name="email"
+                  ref={register({ required: true })}
                 />
+                {errors.email && <span>This field is required</span>}
                 <span className="focus-input100"></span>
                 <span className="label-input100 text-left">Email</span>
               </div>
 
               <div
-                className="wrap-input100 validate-input"
+                className="wrap-input100 validate-input mt-4"
                 data-validate="Password is required"
               >
                 <input
@@ -66,7 +70,11 @@ const Index = () => {
                   onChange={(e) => setPass(e.target.value)}
                   type="password"
                   name="pass"
+                  ref={register({ required: true, minLength: 8 })}
                 />
+                {errors.pass && (
+                  <span>This field is required & minimum value is 8</span>
+                )}
                 <span className="focus-input100"></span>
                 <span className="label-input100 text-left">Password</span>
               </div>
@@ -96,23 +104,9 @@ const Index = () => {
               </div>
 
               <div className="text-center p-t-46 p-b-20">
-                <span className="txt2">or sign up using</span>
-              </div>
-
-              <div className="login100-form-social flex-c-m">
-                <a
-                  href="#"
-                  className="login100-form-social-item flex-c-m bg1 m-r-5"
-                >
-                  <i className="fa fa-facebook-f" aria-hidden="true"></i>
-                </a>
-
-                <a
-                  href="#"
-                  className="login100-form-social-item flex-c-m bg2 m-r-5"
-                >
-                  <i className="fa fa-twitter" aria-hidden="true"></i>
-                </a>
+                <span className="txt2">
+                  or <Link to="/signup">sign up</Link>
+                </span>
               </div>
             </form>
 

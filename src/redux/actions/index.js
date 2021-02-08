@@ -16,6 +16,8 @@ export const SIGNOUT = "SIGNOUT";
 // NEWS
 export const HIT_GETNEWS = "HIT_GETNEWS";
 export const GET_NEWS = "GET_NEWS";
+export const HIT_GETONENEWS = "HIT_GETONENEWS";
+export const GET_ONENEWS = "GET_ONENEWS";
 export const HIT_POSTNEWS = "HIT_POSTNEWS";
 export const POST_NEWS = "POST_NEWS";
 export const HIT_PUTNEWS = "HIT_PUTNEWS";
