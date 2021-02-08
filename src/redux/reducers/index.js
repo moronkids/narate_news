@@ -1,9 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { combineReducers } from "redux";
 import auth from "redux/reducers/auth";
+import news from "redux/reducers/news";
 
 const appReducer = combineReducers({
   auth: auth,
+  news: news,
 });
 const rootReducer = (state, action) => {
   if (action.type === "SIGNOUT") {

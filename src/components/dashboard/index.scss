@@ -1,0 +1,122 @@
+.griddle-table {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.griddle-table-heading {
+  text-align: left;
+}
+
+.griddle-table-heading-cell {
+  text-align: left;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
+  font-feature-settings: tnum;
+  -moz-font-feature-settings: tnum;
+  -ms-font-feature-settings: tnum;
+  -webkit-font-feature-settings: tnum;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: calc(0.75rem - 1px);
+}
+
+.griddle-table-heading-cell:first-child {
+  padding-left: 0;
+}
+
+.griddle-table-body {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+  box-sizing: inherit;
+}
+
+.griddle-row {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+  box-sizing: inherit;
+}
+
+.griddle-cell {
+  text-align: left;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
+  font-feature-settings: tnum;
+  -moz-font-feature-settings: tnum;
+  -ms-font-feature-settings: tnum;
+  -webkit-font-feature-settings: tnum;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: calc(0.75rem - 1px);
+}
+
+.griddle-cell:first-child {
+  padding-left: 0;
+}
+.griddle-filter {
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: textfield;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 8px 4px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+  float: left;
+}
+
+// ----
+.griddle-settings {
+  & input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: textfield;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 8px 4px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    float: left;
+    margin-bottom: 10px;
+  }
+  h4 {
+    margin-top: 15px;
+  }
+}

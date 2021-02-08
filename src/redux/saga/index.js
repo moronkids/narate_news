@@ -10,11 +10,14 @@ import {
   HIT_SIGNUP,
   SIGNOUT,
   HIT_SIGNOUT,
+  HIT_GETNEWS,
+  GET_NEWS,
 } from "redux/actions/index";
 // Import all actions
 
 // Import all api'
 import { signIn, signup } from "redux/api/auth";
+import { getNews } from "redux/api/news";
 
 // Import all api'
 
@@ -34,10 +37,19 @@ function* signOutFunc() {
   yield put({ type: SIGNOUT });
 }
 
+//news
+
+function* getNewsFunc({payload}) {
+  const news = yield call(getNews, payload)
+  yield put({type: GET_NEWS, payload: news})
+}
+
+
 export default function* protra() {
+  //auth
   yield takeEvery(HIT_LOGIN, signInFunc);
   yield takeEvery(HIT_SIGNUP, signUpFunc);
   yield takeEvery(HIT_SIGNOUT, signOutFunc);
-
-  // yield takeLatest(HIT_REORDER_CARD, getReorderCard);
+  // news
+  yield takeEvery(HIT_GETNEWS, getNewsFunc);
 }

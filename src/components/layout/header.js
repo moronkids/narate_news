@@ -48,7 +48,9 @@ const Header = () => {
               <span className="w-auto mx-2 text-right">News</span>
             </Link>
             {localStorage.getItem("token") && (
-              <span className="w-auto mx-2 text-right">Dashboard</span>
+              <Link to="dashboard">
+                <span className="w-100 mx-2 text-right">Dashboard</span>
+              </Link>
             )}
             {localStorage.getItem("token") ? (
               <Link to="/" onClick={(e) => dispatch({ type: HIT_SIGNOUT })}>
@@ -72,11 +74,13 @@ const Header = () => {
           show ? `d-block` : `d-none`
         } d-md-none float-right w-100 position-absolute navbar-nav row p-0 m-0 py-4 bg-light`}
       >
-        <Link to="/news" className="w-100 row h5" onClick={(e) => showMenu(e)}>
+        <Link to="news" className="w-100 row h5" onClick={(e) => showMenu(e)}>
           <span className="w-100 mx-2 text-right">News</span>
         </Link>
         <Link className="w-100 row h5" onClick={(e) => showMenu(e)}>
-          <span className="w-100 mx-2 text-right">Dashboard</span>
+          <Link to="dashboard">
+            <span className="w-100 mx-2 text-right">Dashboard</span>
+          </Link>
         </Link>
         <Link to="signin" className="w-100 row h5" onClick={(e) => showMenu(e)}>
           <span className="w-100 mx-2 text-right">Login</span>
