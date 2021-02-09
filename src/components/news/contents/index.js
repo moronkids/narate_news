@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { HIT_GETNEWS } from "redux/actions";
 import TruncateMarkup from "react-truncate-markup";
 import { Link } from "react-router-dom";
+import moment from "moment";
 const Index = () => {
   const dispatch = useDispatch();
   const {news} = useSelector((state) => ({
@@ -49,7 +50,10 @@ const Index = () => {
                   ></div>
                   <span className="w-100 h-7 text-left mb-2 mt-2">
                     Posted : <br />
-                    13/Jan/1996
+                    {moment(news.data[val].created_at)
+                      .utc()
+                      .format("MM-DD-YYYY")
+                      .toString()}
                   </span>
                 </div>
                 <div className="ml-2 ml-sm-0 text-left ml-md-2 ml-0 col-md-8 col-8">

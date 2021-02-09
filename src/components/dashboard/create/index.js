@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { useForm } from "react-hook-form";
-
 import {
   HIT_DELETENEWS,
   HIT_GETNEWS,
@@ -22,12 +21,13 @@ const Index = () => {
   );
   useEffect(() => {
   }, []);
-  const editNews = (e) => {
-    e.preventDefault()
-    let formData = new FormData();
-    formData.append("title", e.target[1].value);
-    formData.append("desc", e.target[2].value);
-    formData.append("image", e.target[0].files[0]);
+  const editNews = async (e) => {
+    console.log(e, "powe")
+    // e.preventDefault()
+    let formData = await new FormData();
+    formData.append("title", e.Title);
+    formData.append("desc", e.Description);
+    formData.append("image", e.Image[0]);
     console.log(e, "cek");
     dispatch({ type: HIT_POSTNEWS, payload: [id, formData] });
   };
@@ -35,7 +35,7 @@ const Index = () => {
   return (
     <div className="pb-5 pt-5">
       <h3 className="text-left h2 font-weight-bold mb-3 pl-2">Create News</h3>
-      <form className="text-left mt-5 col-6" onSubmit={handleSubmit(e => editNews(e))}>
+      <form className="text-left mt-5 col-6" onSubmit={handleSubmit(editNews)}>
         <div class="form-group">
           <label for="exampleFormControlInput1">Image</label>
           <div

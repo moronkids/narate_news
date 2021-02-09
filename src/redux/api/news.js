@@ -116,6 +116,8 @@ export const putNews = async (data, props) => {
     MySwal.fire({
       icon: "success",
       title: <h5>{todos.data.message}</h5>,
+    }).then(e => {
+      return window.location.href ="/dashboard"
     })
     return datax;
   }
@@ -157,7 +159,9 @@ export const postNews = async (data, props) => {
     MySwal.fire({
       icon: "success",
       title: <h5>Success create News!</h5>,
-    })
+    }).then((e) => {
+      window.location.pathname = "/news";
+    });
     return datax;
   }
 };

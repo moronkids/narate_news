@@ -20,6 +20,7 @@ const Index = () => {
   }, []);
   const editNews = (e) => {
     e.preventDefault();
+    console.log(e, "powe")
     let formData = new FormData();
     formData.append("title", e.target[1].value);
     formData.append("desc", e.target[2].value);
@@ -36,7 +37,7 @@ const Index = () => {
     <div className="pb-5 pt-5">
       {console.log(descx, titlex, desc, title, "bro")}
       <h3 className="text-left h2 font-weight-bold mb-3 pl-2">Edit News</h3>
-      <form className="text-left mt-5 col-6" onSubmit={handleSubmit(e => editNews(e))}>
+      <form className="text-left mt-5 col-6" onSubmit={e => handleSubmit(editNews(e))}>
         <div class="form-group">
           <label for="exampleFormControlInput1">Image</label>
           <div
